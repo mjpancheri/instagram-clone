@@ -1,7 +1,7 @@
 <main class="posts-page container">
   <section class="posts">
     <% if @posts.any? %>
-      <%- render @posts %>
+      <%= render @posts %>
     <% else %>
       <p>No posts yet.</p>
     <% end %>
