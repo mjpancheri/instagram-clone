@@ -1,0 +1,9 @@
+<div id="user-actions" class="modal">
+  <div class="user-action">
+    <%= link_to "Edit profile", edit_profile_path %>
+  </div>
+
+  <div class="user-action">
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { confirm: "Logout?" } %>
+  </div>
+</div>

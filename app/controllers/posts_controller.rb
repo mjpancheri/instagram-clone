@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
+  include SuggestedUsers
+  
   before_action :set_post, only: %i[ show ]
+  before_action :set_suggested_users, only: %i[index]
 
   def index
     # flash.now[:notice] = "This is the index action"
@@ -14,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(created_by: current_user))
 
     if @post.save
       redirect_to @post, notice: "Post was successfully created."
