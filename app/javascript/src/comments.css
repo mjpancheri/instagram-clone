@@ -1,4 +1,4 @@
-/* @import "trix/dist/trix"; */
+@import "trix/dist/trix";
 
 .trix-button-group.trix-button-group--block-tools,
 .trix-button-group.trix-button-group--file-tools,
@@ -56,8 +56,8 @@ main.posts-page.has-comments aside {
   grid-area: comment-created-at;
   margin-top: 0.5rem;
   color: var(--color-gray-dark);
-  text-transform: uppercase;
-  font-size: 12px;
+  text-transform: lowercase;
+  font-size: 11px;
 }
 
 form.new-comment {
