@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     # flash.now[:notice] = "This is the index action"
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: "Post was successfully created."
     else
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -32,6 +33,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:description)
+    params.require(:post).permit(:description, :photo)
   end
 end
